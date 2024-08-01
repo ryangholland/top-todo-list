@@ -1,19 +1,23 @@
 import Todo from "./todo";
 import Project from "./project";
+import List from "./list";
 
+const myList = new List();
 
-const myList = {
-  todos: [],
-  projects: [],
-};
+const testProject = new Project("Chores")
+myList.addProject(testProject)
 
-const testTodo = new Todo(
-  "Test",
-  "This is a test todo item",
-  "tomorrow",
-  "high",
-);
+const testBtn = document.getElementById("test-task");
+testBtn.addEventListener("click", () => {
+  const testTodo = new Todo(
+    "Test Task",
+    "This is a test todo item",
+    "tomorrow",
+    "high",
+    testProject
+  );
+  myList.addTodo(testTodo);
+  myList.renderTodos();
+})
 
-myList.todos.push(testTodo);
-
-console.log(myList);
+myList.renderTodos();
