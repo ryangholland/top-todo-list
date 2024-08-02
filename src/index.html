@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= htmlWebpackPlugin.options.title %></title>
-</head>
-<body>
-    <h1>Howdy!</h1>
-    <button id="test-task">Generate Test Task</button>
-    <div id="content"></div>
-</body>
+  </head>
+  <body>
+    <div class="body-grid">
+      <header>
+        <h1>Todo List</h1>
+      </header>
+      <main>
+        <div class="sidebar">
+          <button>Inbox</button>
+          <button>Today</button>
+          <button>This Week</button>
+        </div>
+        <button id="test-task">Generate Test Task</button>
+        <div id="content"></div>
+      </main>
+      <footer>
+        <p>&copy; 2024 Ryan Holland</p>
+      </footer>
+    </div>
+  </body>
 </html>
