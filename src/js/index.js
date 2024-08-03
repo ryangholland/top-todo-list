@@ -1,8 +1,12 @@
 import '../css/style.css'
+import Logo from "../assets/format-list-checks.svg"
 
 import Todo from "./todo";
 import Project from "./project";
 import List from "./list";
+
+const logoImg = document.getElementById("logoImg");
+logoImg.src = Logo;
 
 const myList = new List();
 
