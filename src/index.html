@@ -8,17 +8,28 @@
   <body>
     <div class="body-grid">
       <header>
+        <img id="logoImg" alt="Todo List Logo" />
         <h1>Todo List</h1>
       </header>
       <main>
-        <div class="sidebar">
-          <button>Inbox</button>
-          <button>Today</button>
-          <button>This Week</button>
+        <div class="sidebar flow">
+          <div class="button-group">
+            <button><img id="inboxImg" alt="Inbox"> Inbox</button>
+            <button><img id="todayImg" alt="Today"> Today</button>
+            <button><img id="weekImg" alt="This Week"> This Week</button>
+          </div>
+          <hr>
+          <h3>Projects</h3>
+          <div class="button-group">
+            <button><img class="plusImg" alt="Plus Symbol"> Add Project</button>
+          </div>
         </div>
-        <button id="test-task">Generate Test Task</button>
-        <div id="content"></div>
-        <img id="logoImg" alt="Todo List Logo" />
+        <div class="content">
+          <h2>Inbox</h2>
+          <button id="test-task">Generate Test Task</button>
+          <div id="content"></div>
+        </div>
+        
       </main>
       <footer>
         <p>&copy; 2024 Ryan Holland</p>
