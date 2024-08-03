@@ -13,7 +13,7 @@ class List {
   }
 
   renderTodos() {
-    const contentDiv = document.getElementById("content");
+    const contentDiv = document.getElementById("active-todos");
     contentDiv.innerHTML = "";
     this.todos.forEach((todo) => {
       const todoElement = todo.render();

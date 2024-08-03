@@ -9,7 +9,7 @@ class Todo {
 
   render() {
     const container = document.createElement("div");
-    const title = document.createElement("h3");
+    const title = document.createElement("h4");
     title.textContent = this.title;
     container.append(title)
     

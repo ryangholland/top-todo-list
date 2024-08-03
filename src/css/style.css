@@ -63,10 +63,18 @@ img {
   height: 25px;
 }
 
+hr {
+  margin-bottom: 1rem;
+}
+
 /* Utility */
 
 .flow > * + * {
   margin-top: 1rem;
+}
+
+.flex-row {
+  display: flex;
 }
 
 /* Header */
@@ -135,6 +143,19 @@ main {
 .content {
   padding: 1.5rem 2.5rem;
   background-color: rgb(236, 236, 236);
+}
+
+.todo-container {
+  background-color: rgb(221, 221, 221);
+  max-width: 800px;
+  padding: 1rem;
+  border: solid 1px;
+  border-radius: 5px;
+}
+
+.todo-row {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Footer */
