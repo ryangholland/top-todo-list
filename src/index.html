@@ -12,7 +12,7 @@
         <h1>Todo List</h1>
       </header>
       <main>
-        <div class="sidebar flow">
+        <div class="sidebar">
           <div class="button-group">
             <button><img id="inboxImg" alt="Inbox" /> Inbox</button>
             <button><img id="todayImg" alt="Today" /> Today</button>
@@ -20,17 +20,24 @@
           </div>
           <hr />
           <h3>Projects</h3>
+          <div id="project-list" class="button-group"></div>
           <div class="button-group">
-            <button><img class="projectImg" alt="Project Icon" /> Example Project</button>
-            <button>
+            <button id="add-project">
               <img class="plusImg" alt="Plus Symbol" /> Add Project
             </button>
+            <div id="new-project-container" class="hidden">
+              <form action="" id="new-project-form" class="flex-row">
+                <button type="submit">
+                  <img class="plusImg" alt="Plus Symbol" />
+                </button>
+                <input type="text" id="new-project-input" />
+              </form>
+            </div>
           </div>
         </div>
         <div class="content">
           <h2>Inbox</h2>
           <hr />
-          <!-- <button id="test-task">Generate Test Task</button> -->
           <div id="active-todos">
             <div class="todo-container">
               <div class="todo-row">
@@ -39,9 +46,8 @@
                   <h4>Task Title</h4>
                 </div>
                 <div class="flex-row">
-                  <img class="highPrioImg" alt="High Priority">
+                  <img class="highPrioImg" alt="High Priority" />
                   <p>01/01/25</p>
-                  
                 </div>
               </div>
             </div>

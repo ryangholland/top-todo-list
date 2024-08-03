@@ -1,3 +1,5 @@
+import loadImages from "./images";
+
 class List {
   constructor() {
     this.todos = [];
@@ -19,6 +21,16 @@ class List {
       const todoElement = todo.render();
       contentDiv.append(todoElement);
     });
+  }
+
+  renderProjects() {
+    const projectDiv = document.getElementById("project-list")
+    projectDiv.innerHTML = "";
+    this.projects.forEach((project) => {
+      const projectElement = project.render();
+      projectDiv.append(projectElement)
+    })
+    loadImages();
   }
 }
 
