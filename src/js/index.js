@@ -12,6 +12,8 @@ const addProjectBtn = document.getElementById("add-project");
 const newProjectContainer = document.getElementById("new-project-container");
 const newProjectInput = document.getElementById("new-project-input");
 const newProjectForm = document.getElementById("new-project-form");
+const addTaskBtn = document.getElementById("add-task");
+const addTaskModal = document.getElementById("add-task-modal");
 
 addProjectBtn.addEventListener("click", () => {
   addProjectBtn.classList.add("hidden");
@@ -32,3 +34,7 @@ newProjectForm.addEventListener("submit", (e) => {
   addProjectBtn.classList.remove("hidden");
   newProjectContainer.classList.add("hidden");
 });
+
+addTaskBtn.addEventListener("click", () => {
+  addTaskModal.showModal();
+})
