@@ -2,24 +2,24 @@ import loadImages from "./images";
 
 class List {
   constructor() {
-    this.todos = [];
+    this.tasks = [];
     this.projects = [];
   }
 
-  addTodo(todo) {
-    this.todos.push(todo);
+  addTask(task) {
+    this.tasks.push(task);
   }
 
   addProject(project) {
     this.projects.push(project);
   }
 
-  renderTodos() {
-    const contentDiv = document.getElementById("active-todos");
+  renderTasks() {
+    const contentDiv = document.getElementById("active-tasks");
     contentDiv.innerHTML = "";
-    this.todos.forEach((todo) => {
-      const todoElement = todo.render();
-      contentDiv.append(todoElement);
+    this.tasks.forEach((task) => {
+      const taskElement = task.render();
+      contentDiv.append(taskElement);
     });
   }
 

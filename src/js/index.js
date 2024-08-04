@@ -1,7 +1,7 @@
 import "../css/style.css";
 import loadImages from "./images";
 
-import Todo from "./todo";
+import Task from "./task";
 import Project from "./project";
 import List from "./list";
 

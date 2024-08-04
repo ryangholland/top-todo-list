@@ -1,3 +1,10 @@
+:root {
+  --lightest-gray: rgb(236, 236, 236);
+  --lighter-gray: rgb(218, 218, 218);
+  --light-gray: rgb(197, 197, 197);
+  --dark-gray: rgb(59, 59, 59);
+}
+
 /* CSS Reset */
 
 *,
@@ -73,10 +80,10 @@ dialog {
   left: 50%;
   transform: translate(-50%, -50%);
 
-  background-color: rgb(236, 236, 236);
+  background-color: var(--lightest-gray);
 
   border-radius: 5px;
-  border-color: rgb(59, 59, 59);
+  border-color: var(--dark-gray);
 
   padding: 1rem;
 }
@@ -100,7 +107,7 @@ dialog {
 
 header {
   padding: 1rem;
-  background-color: rgb(59, 59, 59);
+  background-color: var(--dark-gray);
   color: white;
 
   display: flex;
@@ -135,7 +142,7 @@ main {
 
 .sidebar {
   padding: 1.5rem 1rem;
-  background-color: rgb(218, 218, 218);
+  background-color: var(--lighter-gray);
 }
 
 .sidebar h3 {
@@ -159,7 +166,7 @@ main {
 
 .button-group button:hover {
   cursor: pointer;
-  background-color: rgb(197, 197, 197);
+  background-color: var(--light-gray);
 }
 
 #new-project-container {
@@ -173,26 +180,26 @@ main {
 
 #new-project-container input {
   background-color: inherit;
-  border: none; 
-  border-bottom: 2px solid black; 
-  outline: none; 
-  width: 100%; 
+  border: none;
+  border-bottom: 2px solid black;
+  outline: none;
+  width: 100%;
 }
 
 .content {
   padding: 1.5rem 2.5rem;
-  background-color: rgb(236, 236, 236);
+  background-color: var(--lightest-gray);
 }
 
-.todo-container {
-  background-color: rgb(221, 221, 221);
+.task-container {
+  background-color: var(--lighter-gray);
   max-width: 800px;
   padding: 1rem;
   border: solid 1px;
   border-radius: 5px;
 }
 
-.todo-row {
+.task-row {
   display: flex;
   justify-content: space-between;
 }
@@ -201,7 +208,7 @@ main {
 
 footer {
   padding: 1rem;
-  background-color: rgb(59, 59, 59);
+  background-color: var(--dark-gray);
   color: white;
   text-align: center;
 }
