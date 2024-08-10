@@ -1,5 +1,11 @@
 class Task {
-  constructor(title, description, dueDate, priority, project=null) {
+  constructor(
+    title,
+    project = null,
+    dueDate = null,
+    priority = "low",
+    description = ""
+  ) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
@@ -11,8 +17,8 @@ class Task {
     const container = document.createElement("div");
     const title = document.createElement("h4");
     title.textContent = this.title;
-    container.append(title)
-    
+    container.append(title);
+
     return container;
   }
 }
