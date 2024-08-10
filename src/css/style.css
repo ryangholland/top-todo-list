@@ -203,10 +203,60 @@ footer {
 
 dialog {
   margin: auto;
-  padding: 2rem;
+  padding: 2rem 3rem;
+  border: 0;
+  box-shadow: 0 15px 35px hsla(0, 0%, 0%, 0.2);
+  background-color: var(--lightest-gray);
 }
 
-#add-task-form {
+#add-task-form,
+.form-group {
   display: flex;
   flex-direction: column;
+}
+
+.form-group {
+  gap: 0.25rem;
+}
+
+.form-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+textarea {
+  border: 0;
+  border-radius: 5px;
+  padding: 0.1rem 0.5rem;
+}
+
+textarea {
+  padding: 0.5rem;
+}
+
+.form-btns button {
+  padding: 0.25rem;
+  border-radius: 5px;
+
+  border: 1px solid transparent; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  cursor: pointer;
+}
+
+.form-btns button:hover {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Slightly larger shadow on hover */
+}
+
+.cancel-btn {
+  background-color: #fecaca;
+}
+
+.submit-btn {
+  background-color: #bbf7d0;
 }
