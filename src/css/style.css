@@ -229,7 +229,7 @@ label {
   font-weight: bold;
 }
 
-input,
+dialog input,
 textarea {
   border: 0;
   border-radius: 5px;
