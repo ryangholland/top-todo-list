@@ -9,7 +9,7 @@
     <dialog id="add-task-modal">
       <h3>Add Task:</h3>
       <hr />
-      <form  id="add-task-form" class="flow">
+      <form id="add-task-form" class="flow">
         <div class="form-group flow-sm">
           <label for="taskTitle">Title</label>
           <input type="text" id="taskTitle" name="taskTitle" required />
@@ -44,7 +44,6 @@
           ></textarea>
         </div>
         <div class="form-btns">
-
           <button type="submit" class="submit-btn" id="submit-add-task">
             Submit
           </button>
@@ -91,17 +90,35 @@
         <div class="content">
           <h2>Inbox</h2>
           <hr />
-          <div id="active-tasks">
+          <div id="active-tasks" class="flow">
             <div class="task-container">
-              <div class="task-row">
-                <div class="flex-row">
-                  <input type="checkbox" name="" id="" />
-                  <h4>Task Title</h4>
-                </div>
-                <div class="flex-row">
-                  <img class="highPrioImg" alt="High Priority" />
-                  <p>01/01/25</p>
-                </div>
+              <div class="flex-row task-row">
+                <label class="custom-checkbox">
+                  <input type="checkbox" />
+                  <span class="filled"></span>
+                </label>
+                <h4>Task title goes here...</h4>
+                <img class="highPrioImg" alt="High Priority" />
+              </div>
+              <div class="flex-row task-details-row">
+                
+                <p>Due: Tomorrow</p>
+                <p>Project</p>
+              </div>
+            </div>
+            <div class="task-container test">
+              <div class="flex-row task-row">
+                <label class="custom-checkbox">
+                  <input type="checkbox" />
+                  <span class="filled"></span>
+                </label>
+                <h4>Task title goes here...</h4>
+                <img class="highPrioImg" alt="High Priority" />
+              </div>
+              <div class="flex-row task-details-row">
+                
+                <p>Due: Tomorrow</p>
+                <p>Project</p>
               </div>
             </div>
           </div>
