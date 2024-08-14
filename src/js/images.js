@@ -6,6 +6,8 @@ import plus from "../assets/plus.svg";
 import project from "../assets/list-box-outline.svg";
 import highPrio from "../assets/high-prio.svg";
 import medPrio from "../assets/med-prio.svg";
+import note from "../assets/note-text.svg"
+import clock from "../assets/calendar-clock.svg"
 
 const loadImages = () => {
   const logoImg = document.getElementById("logoImg");
@@ -16,10 +18,21 @@ const loadImages = () => {
   todayImg.src = today;
   const weekImg = document.getElementById("weekImg");
   weekImg.src = week;
+
   const plusImgs = document.querySelectorAll(".plusImg");
   plusImgs.forEach((plusImg) => {
     plusImg.src = plus;
   });
+
+  const noteImgs = document.querySelectorAll(".noteImg");
+  noteImgs.forEach((noteImg) => {
+    noteImg.src = note;
+  })
+
+  const clockImgs = document.querySelectorAll(".clockImg");
+  clockImgs.forEach((clockImg) => {
+    clockImg.src = clock;
+  })
 
   const projectImgs = document.querySelectorAll(".projectImg")
   projectImgs.forEach((projectImg) => {

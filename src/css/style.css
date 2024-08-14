@@ -202,8 +202,8 @@ main {
 }
 
 .custom-checkbox input[type="checkbox"]:checked + .filled {
-  background-color: var(--lightest-gray);
-  border: 2px solid var(--lightest-gray);
+  background-color: var(--lighter-gray);
+  border: 2px solid var(--lighter-gray);
 }
 
 .custom-checkbox input[type="checkbox"]:checked + .filled::after {
@@ -230,16 +230,31 @@ h4 {
 
 .task-details-row p {
   font-size: 0.85rem;
+  
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
 }
 
-.test {
+.task-details-row img {
+  display: inline-block;
+  height: 18px;
+}
+
+.task-completed {
   background-color: var(--dark-gray);
   color: var(--lightest-gray);
+  border: var(--lightest-gray);
 }
 
-.test h4,
-.test p {
+.task-completed h4,
+.task-completed p {
   text-decoration: line-through;
+}
+
+.task-completed .task-details-row,
+.task-completed img {
+  display: none;
 }
 
 /* Footer */
