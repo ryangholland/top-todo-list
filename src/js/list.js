@@ -21,6 +21,7 @@ class List {
       const taskElement = task.render();
       contentDiv.append(taskElement);
     });
+    loadImages();
   }
 
   renderProjects() {
