@@ -11,6 +11,7 @@ class Task {
     this.dueDate = dueDate;
     this.priority = priority;
     this.project = project;
+    this.completed = false;
   }
 
   render() {
@@ -21,29 +22,50 @@ class Task {
     topRow.classList.add("flex-row");
     topRow.classList.add("task-row");
 
+    const topLeft = document.createElement("div");
+    topLeft.classList.add("flex-row");
+
     const checkboxLabel = document.createElement("label");
     checkboxLabel.classList.add("custom-checkbox");
     const checkboxInput = document.createElement("input");
     checkboxInput.type = "checkbox";
     const checkboxSpan = document.createElement("span");
     checkboxSpan.classList.add("filled");
+
+    checkboxInput.addEventListener("change", () => {
+      if (checkboxInput.checked) {
+        taskContainer.classList.add("task-completed");
+        this.completed = true;
+      } else {
+        taskContainer.classList.remove("task-completed");
+        this.completed = false;
+      }
+    });
+
     checkboxLabel.append(checkboxInput);
     checkboxLabel.append(checkboxSpan);
 
     const taskTitle = document.createElement("h4");
     taskTitle.textContent = this.title;
 
-    topRow.append(checkboxLabel);
-    topRow.append(taskTitle);
+    topLeft.append(checkboxLabel);
+    topLeft.append(taskTitle);
 
     if (this.priority !== "low") {
       const prioImg = document.createElement("img");
       const prioClass =
         this.priority == "medium" ? "medPrioImg" : "highPrioImg";
       prioImg.classList.add(prioClass);
-      topRow.append(prioImg);
+      topLeft.append(prioImg);
     }
 
+    topRow.append(topLeft);
+
+    const topRight = document.createElement("div");
+    const trashImg = document.createElement("img");
+    trashImg.classList.add("trashImg");
+    topRight.append(trashImg);
+    topRow.append(topRight);
     taskContainer.append(topRow);
 
     if (this.dueDate || this.project || this.description) {
