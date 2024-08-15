@@ -52,6 +52,7 @@ const loadEventListeners = (myList) => {
 
     if (taskTitleInput.value.trim() !== "") {
       const newTask = new Task(
+        myList,
         taskTitleInput.value,
         taskProjectInput.value,
         dueDateInput.value,

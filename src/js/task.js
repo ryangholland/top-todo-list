@@ -1,12 +1,13 @@
 class Task {
   constructor(
+    list,
     title,
     project = "inbox",
     dueDate = null,
     priority = "low",
     description = null
   ) {
-    this.title = title;
+    (this.list = list), (this.title = title);
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
@@ -64,6 +65,12 @@ class Task {
     const topRight = document.createElement("div");
     const trashImg = document.createElement("img");
     trashImg.classList.add("trashImg");
+
+    trashImg.addEventListener("click", () => {
+      this.list.deleteTask(this);
+      taskContainer.remove();
+    });
+
     topRight.append(trashImg);
     topRow.append(topRight);
     taskContainer.append(topRow);
