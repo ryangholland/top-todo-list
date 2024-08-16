@@ -1,0 +1,38 @@
+#add-task-form,
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  gap: 0.25rem;
+}
+
+.form-btns {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1rem;
+}
+
+dialog input,
+textarea {
+  border: 0;
+  border-radius: 5px;
+  padding: 0.1rem 0.5rem;
+}
+
+.form-btns button {
+  flex: 1;
+  width: 50%;
+
+  padding: 0.25rem;
+  border-radius: 5px;
+
+  border: 1px solid transparent;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  cursor: pointer;
+}
+
+.form-btns button:hover {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Slightly larger shadow on hover */
+}

@@ -1,0 +1,20 @@
+.flow > * + * {
+  margin-top: 1rem;
+}
+
+.flex-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.cancel-btn {
+  background-color: #fecaca;
+}
+
+.submit-btn {
+  background-color: #bbf7d0;
+}

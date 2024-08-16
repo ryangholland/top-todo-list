@@ -1,0 +1,12 @@
+@import "./global/reset.css";
+@import "./global/general.css";
+@import "./global/util.css";
+@import "./sections/header.css";
+@import "./sections/main.css";
+@import "./sections/footer.css";
+@import "./components/task.css";
+@import "./components/addTaskModal.css";
+
+
+
+

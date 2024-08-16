@@ -1,0 +1,17 @@
+header {
+  padding: 1rem;
+  background-color: var(--dark-gray);
+  color: white;
+
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+#logoImg {
+  height: 70px;
+  border: solid 1px;
+  border-radius: 10px;
+}
+
+

@@ -1,4 +1,4 @@
-import "../css/style.css";
+import "../css/index.css";
 import loadImages from "./images";
 import loadEventListeners from "./events";
 
