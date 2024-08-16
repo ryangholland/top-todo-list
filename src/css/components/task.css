@@ -80,7 +80,7 @@
 }
 
 .task-completed .task-details-row,
-.task-completed .highPrioImg,
-.task-completed .medPrioImg {
+.task-completed .PrioImg
+{
   display: none;
 }

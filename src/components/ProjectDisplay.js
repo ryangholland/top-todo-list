@@ -1,19 +1,20 @@
-class Project {
-  constructor(title) {
-    this.title = title;
+import projectImg from "../assets/list-box-outline.svg";
+
+export default class ProjectDisplay {
+  constructor(project) {
+    this.project = project;
   }
 
   render() {
     const button = document.createElement("button");
     const img = document.createElement("img");
     img.classList.add("projectImg");
+    img.src = projectImg;
     const p = document.createElement("p");
-    p.textContent = this.title;
+    p.textContent = this.project.title;
 
     button.append(img);
     button.append(p);
     return button;
   }
 }
-
-export default Project;
