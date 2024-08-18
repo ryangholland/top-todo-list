@@ -10,6 +10,15 @@ export default class List {
 
   addProject(newProject) {
     this.projects.push(newProject);
+    this.updateProjectChoices(newProject)
+  }
+
+  updateProjectChoices(newProject) {
+    const selectElement = document.getElementById("taskProject");
+    const newOption = document.createElement("option");
+    newOption.value = newProject.title;
+    newOption.text = newProject.title;
+    selectElement.add(newOption);
   }
 
   getTaskById(taskId) {
