@@ -1,3 +1,5 @@
+import { changeScreen } from "../app";
+
 const loadScreenEvents = () => {
   const screenSelectors = document.querySelectorAll(".screen-selector");
   screenSelectors.forEach((selector) => {
@@ -14,6 +16,8 @@ function addSelectScreenEventListener(selector) {
     );
     selector.classList.add("screen-selected");
     screenTitle.textContent = selector.textContent;
+
+    changeScreen(selector.textContent.trim());
   });
 }
 

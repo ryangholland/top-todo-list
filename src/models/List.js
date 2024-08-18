@@ -2,6 +2,7 @@ export default class List {
   constructor() {
     this.tasks = [];
     this.projects = [];
+    this.screen = "Inbox";
   }
 
   addTask(newTask) {
@@ -10,7 +11,7 @@ export default class List {
 
   addProject(newProject) {
     this.projects.push(newProject);
-    this.updateProjectChoices(newProject)
+    this.updateProjectChoices(newProject);
   }
 
   updateProjectChoices(newProject) {
@@ -19,6 +20,10 @@ export default class List {
     newOption.value = newProject.title;
     newOption.text = newProject.title;
     selectElement.add(newOption);
+  }
+
+  updateScreen(newScreen) {
+    this.screen = newScreen;
   }
 
   getTaskById(taskId) {

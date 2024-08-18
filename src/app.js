@@ -9,12 +9,12 @@ import loadProjectEvents from "./events/projectEvents";
 import loadScreenEvents from "./events/screenEvents";
 
 const myList = new List();
-const exampleProjectOne = new Project("Test Project")
-const exampleTaskOne = new Task("Test Task 1", "Test Project")
-const exampleTaskTwo = new Task("Test Task 2")
-myList.addTask(exampleTaskOne)
-myList.addTask(exampleTaskTwo)
-myList.addProject(exampleProjectOne)
+const exampleProjectOne = new Project("Test Project");
+const exampleTaskOne = new Task("Test Task 1", "Test Project");
+const exampleTaskTwo = new Task("Test Task 2");
+myList.addTask(exampleTaskOne);
+myList.addTask(exampleTaskTwo);
+myList.addProject(exampleProjectOne);
 
 function handleDeleteTask(taskId) {
   myList.deleteTask(taskId);
@@ -31,13 +31,25 @@ function renderTasks() {
   const contentDiv = document.getElementById("active-tasks");
   contentDiv.innerHTML = "";
 
-  myList.tasks.forEach((task) => {
+  function renderTask(task) {
     const taskDisplay = new TaskDisplay(
       task,
       handleDeleteTask,
       handleToggleCompleted
     );
     contentDiv.appendChild(taskDisplay.render());
+  }
+
+  myList.tasks.forEach((task) => {
+    if (myList.screen == "Inbox") {
+      if (task.project == "") renderTask(task);
+    } else if (myList.screen == "Today") {
+      renderTask(task);
+    } else if (myList.screen == "This Week") {
+      renderTask(task);
+    } else {
+      if (task.project == myList.screen) renderTask(task);
+    }
   });
 }
 
@@ -50,14 +62,19 @@ function renderProjects() {
   });
 }
 
+function changeScreen(newScreen) {
+  myList.updateScreen(newScreen);
+  renderTasks();
+}
+
 function init() {
   loadStaticImages();
   loadTaskEvents(myList);
   loadProjectEvents(myList);
-  loadScreenEvents();
+  loadScreenEvents(myList);
   renderTasks();
   renderProjects();
 }
 
 export default init;
-export { renderTasks, renderProjects };
+export { renderTasks, renderProjects, changeScreen };

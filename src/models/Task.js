@@ -1,7 +1,7 @@
 export default class Task {
   constructor(
     title,
-    project = null,
+    project = "",
     dueDate = null,
     priority = "low",
     description = null
