@@ -33,16 +33,19 @@ main {
   background-color: var(--light-gray);
 }
 
-#new-project-container {
+#new-project-container,
+#quick-add-task-container {
   gap: 0.5rem;
   padding: 0.5rem 1rem;
 }
 
-#new-project-container button {
+#new-project-container button,
+#quick-add-task-container button {
   padding: 0;
 }
 
-#new-project-container input {
+#new-project-container input,
+#quick-add-task-container input {
   background-color: inherit;
   border: none;
   border-bottom: 2px solid black;
@@ -50,6 +53,12 @@ main {
   width: 100%;
 }
 
+.quick-add-group {
+  width: 400px;
+}
+#quick-add-task-container {
+  width: 400px;
+}
 .content {
   padding: 1.5rem 2.5rem;
   background-color: var(--lightest-gray);
