@@ -27,7 +27,8 @@ main {
   background-color: inherit;
 }
 
-.button-group button:hover {
+.button-group button:hover,
+.screen-selector.screen-selected {
   cursor: pointer;
   background-color: var(--light-gray);
 }

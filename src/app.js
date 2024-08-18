@@ -4,6 +4,7 @@ import ProjectDisplay from "./components/ProjectDisplay";
 import loadStaticImages from "./events/staticImages";
 import loadTaskEvents from "./events/taskEvents";
 import loadProjectEvents from "./events/projectEvents";
+import loadScreenEvents from "./events/screenEvents";
 
 const myList = new List();
 
@@ -45,6 +46,7 @@ function init() {
   loadStaticImages();
   loadTaskEvents(myList);
   loadProjectEvents(myList);
+  loadScreenEvents();
   renderTasks();
   renderProjects();
 }
