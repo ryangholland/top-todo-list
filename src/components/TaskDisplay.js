@@ -25,20 +25,13 @@ export default class TaskDisplay {
     const topLeft = document.createElement("div");
     topLeft.classList.add("flex-row");
 
-    const checkboxLabel = document.createElement("label");
-    checkboxLabel.classList.add("custom-checkbox");
-    const checkboxInput = document.createElement("input");
-    checkboxInput.type = "checkbox";
-    const checkboxSpan = document.createElement("span");
-    checkboxSpan.classList.add("filled");
-
-    checkboxLabel.append(checkboxInput);
-    checkboxLabel.append(checkboxSpan);
+    const toggleButton = document.createElement("button");
+    toggleButton.classList.add("toggle-btn");
 
     const taskTitle = document.createElement("h4");
     taskTitle.textContent = this.task.title;
 
-    topLeft.append(checkboxLabel);
+    topLeft.append(toggleButton);
     topLeft.append(taskTitle);
 
     if (this.task.priority !== "low") {
@@ -101,18 +94,20 @@ export default class TaskDisplay {
     }
 
     // Event Listeners
-    checkboxInput.addEventListener("change", () => {
-      if (checkboxInput.checked) {
-        taskContainer.classList.add("task-completed");
-      } else {
-        taskContainer.classList.remove("task-completed");
-      }
+    toggleButton.addEventListener("click", () => {
       this.handleToggle(this.task.id);
     });
 
     trashImg.addEventListener("click", () => {
       this.handleDelete(this.task.id);
     });
+
+    if (this.task.completed) {
+      taskContainer.classList.add("task-completed");
+      toggleButton.textContent = "X"
+    } else {
+      taskContainer.classList.remove("task-completed");
+    }
 
     return taskContainer;
   }

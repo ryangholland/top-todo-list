@@ -37,6 +37,7 @@ function renderTasks() {
       handleDeleteTask,
       handleToggleCompleted
     );
+
     contentDiv.appendChild(taskDisplay.render());
   }
 
