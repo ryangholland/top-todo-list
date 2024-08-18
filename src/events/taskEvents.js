@@ -64,7 +64,17 @@ const loadTaskEvents = (myList) => {
     e.preventDefault();
 
     if (quickAddTaskInput.value.trim() !== "") {
-      const newTask = new Task(quickAddTaskInput.value);
+      const activeScreen = myList.screen;
+      let proj = "";
+      if (
+        activeScreen !== "Inbox" &&
+        activeScreen !== "This Week" &&
+        activeScreen !== "Today"
+      ) {
+        proj = activeScreen;
+      }
+
+      const newTask = new Task(quickAddTaskInput.value, proj);
       myList.addTask(newTask);
       renderTasks();
     }
