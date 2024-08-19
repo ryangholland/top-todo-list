@@ -46,10 +46,12 @@ export default class TaskDisplay {
     const topRight = document.createElement("div");
     const trashButton = document.createElement("button");
     const trashImg = document.createElement("img");
+    trashButton.dataset.id = this.task.id;
+    trashButton.classList.add("trash-btn");
     trashImg.classList.add("trashImg");
     trashImg.src = trash;
 
-    trashButton.append(trashImg)
+    trashButton.append(trashImg);
     topRight.append(trashButton);
     topRow.append(topRight);
     taskContainer.append(topRow);
@@ -94,18 +96,9 @@ export default class TaskDisplay {
       taskContainer.append(bottomRow);
     }
 
-    // Event Listeners
-    // toggleButton.addEventListener("click", () => {
-    //   this.handleToggle(this.task.id);
-    // });
-
-    // trashImg.addEventListener("click", () => {
-    //   this.handleDelete(this.task.id);
-    // });
-
     if (this.task.completed) {
       taskContainer.classList.add("task-completed");
-      toggleButton.textContent = "X"
+      toggleButton.textContent = "X";
     } else {
       taskContainer.classList.remove("task-completed");
     }

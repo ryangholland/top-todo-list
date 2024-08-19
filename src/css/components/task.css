@@ -26,6 +26,14 @@
   cursor: pointer;
 }
 
+.trashImg {
+  pointer-events: none;
+}
+
+.trash-btn {
+  cursor: pointer;
+}
+
 .task-details-row {
   margin-left: 40px;
   display: flex;

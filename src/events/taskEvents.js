@@ -17,13 +17,19 @@ const loadTaskEvents = (myList) => {
   // Toggle tasks complete
   activeTasks.addEventListener("click", (e) => {
     if (!e.target.classList.contains("toggle-btn")) return;
-    const selectedTask = myList.getTaskById(e.target.dataset.id)
+    const selectedTask = myList.getTaskById(e.target.dataset.id);
     selectedTask.toggleCompleted();
     renderTasks();
-  })
+  });
 
   // Delete task
+  activeTasks.addEventListener("click", (e) => {
+    if (!e.target.classList.contains("trash-btn")) return;
+    myList.deleteTask(e.target.dataset.id);
+    renderTasks();
+  });
 
+  // move to ui events
   addTaskBtn.addEventListener("click", () => {
     addTaskModal.showModal();
   });
