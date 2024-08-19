@@ -16,17 +16,20 @@ myList.addTask(exampleTaskOne);
 myList.addTask(exampleTaskTwo);
 myList.addProject(exampleProjectOne);
 
-function handleDeleteTask(taskId) {
-  myList.deleteTask(taskId);
-  renderTasks();
-}
+// task event
+// function handleDeleteTask(taskId) {
+//   myList.deleteTask(taskId);
+//   renderTasks();
+// }
 
+// task event
 function handleToggleCompleted(taskId) {
   const task = myList.getTaskById(taskId);
   task.toggleCompleted();
   renderTasks();
 }
 
+// UI event?
 function renderTasks() {
   const contentDiv = document.getElementById("active-tasks");
   contentDiv.innerHTML = "";
@@ -34,8 +37,6 @@ function renderTasks() {
   function renderTask(task) {
     const taskDisplay = new TaskDisplay(
       task,
-      handleDeleteTask,
-      handleToggleCompleted
     );
 
     contentDiv.appendChild(taskDisplay.render());
@@ -54,6 +55,7 @@ function renderTasks() {
   });
 }
 
+// UI event?
 function renderProjects() {
   const projectDiv = document.getElementById("project-list");
   projectDiv.innerHTML = "";
@@ -63,6 +65,7 @@ function renderProjects() {
   });
 }
 
+// UI event
 function changeScreen(newScreen) {
   myList.updateScreen(newScreen);
   renderTasks();

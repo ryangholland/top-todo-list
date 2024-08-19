@@ -6,10 +6,8 @@ import clock from "../assets/calendar-clock.svg";
 import trash from "../assets/delete.svg";
 
 export default class TaskDisplay {
-  constructor(task, handleDelete, handleToggle) {
+  constructor(task) {
     this.task = task;
-    this.handleDelete = handleDelete;
-    this.handleToggle = handleToggle;
   }
 
   render() {
@@ -27,6 +25,7 @@ export default class TaskDisplay {
 
     const toggleButton = document.createElement("button");
     toggleButton.classList.add("toggle-btn");
+    toggleButton.dataset.id = this.task.id;
 
     const taskTitle = document.createElement("h4");
     taskTitle.textContent = this.task.title;
@@ -45,11 +44,13 @@ export default class TaskDisplay {
 
     // Top Right
     const topRight = document.createElement("div");
+    const trashButton = document.createElement("button");
     const trashImg = document.createElement("img");
     trashImg.classList.add("trashImg");
     trashImg.src = trash;
 
-    topRight.append(trashImg);
+    trashButton.append(trashImg)
+    topRight.append(trashButton);
     topRow.append(topRight);
     taskContainer.append(topRow);
 
@@ -94,13 +95,13 @@ export default class TaskDisplay {
     }
 
     // Event Listeners
-    toggleButton.addEventListener("click", () => {
-      this.handleToggle(this.task.id);
-    });
+    // toggleButton.addEventListener("click", () => {
+    //   this.handleToggle(this.task.id);
+    // });
 
-    trashImg.addEventListener("click", () => {
-      this.handleDelete(this.task.id);
-    });
+    // trashImg.addEventListener("click", () => {
+    //   this.handleDelete(this.task.id);
+    // });
 
     if (this.task.completed) {
       taskContainer.classList.add("task-completed");

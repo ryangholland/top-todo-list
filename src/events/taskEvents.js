@@ -1,6 +1,7 @@
 import Task from "../models/Task";
 import { renderTasks } from "../app";
 
+const activeTasks = document.getElementById("active-tasks");
 const addTaskBtn = document.getElementById("add-task");
 const addTaskModal = document.getElementById("add-task-modal");
 const cancelAddTaskBtn = document.getElementById("cancel-add-task");
@@ -13,6 +14,16 @@ const quickAddTaskInput = document.getElementById("quick-add-task-input");
 const quickAddTaskForm = document.getElementById("quick-add-task-form");
 
 const loadTaskEvents = (myList) => {
+  // Toggle tasks complete
+  activeTasks.addEventListener("click", (e) => {
+    if (!e.target.classList.contains("toggle-btn")) return;
+    const selectedTask = myList.getTaskById(e.target.dataset.id)
+    selectedTask.toggleCompleted();
+    renderTasks();
+  })
+
+  // Delete task
+
   addTaskBtn.addEventListener("click", () => {
     addTaskModal.showModal();
   });
