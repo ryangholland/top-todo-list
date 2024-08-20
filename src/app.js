@@ -17,19 +17,6 @@ myList.addTask(exampleTaskOne);
 myList.addTask(exampleTaskTwo);
 myList.addProject(exampleProjectOne);
 
-// task event
-// function handleDeleteTask(taskId) {
-//   myList.deleteTask(taskId);
-//   renderTasks();
-// }
-
-// task event
-function handleToggleCompleted(taskId) {
-  const task = myList.getTaskById(taskId);
-  task.toggleCompleted();
-  renderTasks();
-}
-
 // UI event?
 function renderTasks() {
   const contentDiv = document.getElementById("active-tasks");
