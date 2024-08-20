@@ -7,6 +7,7 @@ import loadStaticImages from "./events/staticImages";
 import loadTaskEvents from "./events/taskEvents";
 import loadProjectEvents from "./events/projectEvents";
 import loadUiEvents from "./events/uiEvents";
+import { renderTasks } from "./events/uiEvents";
 
 const myList = new List();
 const exampleProjectOne = new Project("Test Project");
@@ -15,32 +16,6 @@ const exampleTaskTwo = new Task("Test Task 2");
 myList.addTask(exampleTaskOne);
 myList.addTask(exampleTaskTwo);
 myList.addProject(exampleProjectOne);
-
-// UI event?
-function renderTasks() {
-  const contentDiv = document.getElementById("active-tasks");
-  contentDiv.innerHTML = "";
-
-  function renderTask(task) {
-    const taskDisplay = new TaskDisplay(
-      task,
-    );
-
-    contentDiv.appendChild(taskDisplay.render());
-  }
-
-  myList.tasks.forEach((task) => {
-    if (myList.screen == "Inbox") {
-      if (task.project == "") renderTask(task);
-    } else if (myList.screen == "Today") {
-      renderTask(task);
-    } else if (myList.screen == "This Week") {
-      renderTask(task);
-    } else {
-      if (task.project == myList.screen) renderTask(task);
-    }
-  });
-}
 
 // UI event?
 function renderProjects() {
@@ -52,20 +27,14 @@ function renderProjects() {
   });
 }
 
-// UI event
-function changeScreen(newScreen) {
-  myList.updateScreen(newScreen);
-  renderTasks();
-}
-
 function init() {
   loadStaticImages();
-  loadUiEvents();
+  loadUiEvents(myList);
   loadTaskEvents(myList);
   loadProjectEvents(myList);
-  renderTasks();
+  renderTasks(myList);
   renderProjects();
 }
 
 export default init;
-export { renderTasks, renderProjects, changeScreen };
+export { renderProjects };

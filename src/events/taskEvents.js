@@ -1,5 +1,5 @@
 import Task from "../models/Task";
-import { renderTasks } from "../app";
+import { renderTasks } from "./uiEvents";
 import { closeAddTaskForm, closeQuickAddTask } from "./uiEvents";
 
 const activeTasks = document.getElementById("active-tasks");

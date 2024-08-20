@@ -1,4 +1,4 @@
-import { changeScreen } from "../app";
+import TaskDisplay from "../components/TaskDisplay";
 
 const addTaskBtn = document.getElementById("add-task");
 const addTaskModal = document.getElementById("add-task-modal");
@@ -16,7 +16,7 @@ const sidebar = document.querySelector(".sidebar");
 const screenTitle = document.getElementById("screen-title");
 const screenSelectors = document.querySelectorAll(".screen-selector");
 
-const loadUiEvents = () => {
+const loadUiEvents = (myList) => {
   // Open "Add Task" modal
   addTaskBtn.addEventListener("click", () => {
     addTaskModal.showModal();
@@ -60,9 +60,8 @@ const loadUiEvents = () => {
     );
     e.target.classList.add("screen-selected");
     screenTitle.textContent = e.target.textContent;
-    changeScreen(e.target.textContent.trim());
+    changeScreen(myList, e.target.textContent.trim());
   });
-  
 };
 
 function closeAddTaskForm() {
@@ -82,5 +81,32 @@ function closeAddProject() {
   newProjectContainer.classList.add("hidden");
 }
 
+function renderTasks(list) {
+  const contentDiv = document.getElementById("active-tasks");
+  contentDiv.innerHTML = "";
+
+  function renderTask(task) {
+    const taskDisplay = new TaskDisplay(task);
+    contentDiv.appendChild(taskDisplay.render());
+  }
+
+  list.tasks.forEach((task) => {
+    if (list.screen == "Inbox") {
+      if (task.project == "") renderTask(task);
+    } else if (list.screen == "Today") {
+      renderTask(task);
+    } else if (list.screen == "This Week") {
+      renderTask(task);
+    } else {
+      if (task.project == list.screen) renderTask(task);
+    }
+  });
+}
+
+function changeScreen(list, newScreen) {
+  list.updateScreen(newScreen);
+  renderTasks(list);
+}
+
 export default loadUiEvents;
-export { closeAddTaskForm, closeQuickAddTask, closeAddProject };
+export { closeAddTaskForm, closeQuickAddTask, closeAddProject, renderTasks };
