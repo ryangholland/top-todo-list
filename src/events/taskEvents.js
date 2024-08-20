@@ -1,15 +1,9 @@
 import Task from "../models/Task";
 import { renderTasks } from "../app";
+import { closeAddTaskForm, closeQuickAddTask } from "./uiEvents";
 
 const activeTasks = document.getElementById("active-tasks");
-const addTaskBtn = document.getElementById("add-task");
 const addTaskModal = document.getElementById("add-task-modal");
-const cancelAddTaskBtn = document.getElementById("cancel-add-task");
-const addTaskForm = document.getElementById("add-task-form");
-const quickAddTaskBtn = document.getElementById("quick-add-task");
-const quickAddTaskContainer = document.getElementById(
-  "quick-add-task-container"
-);
 const quickAddTaskInput = document.getElementById("quick-add-task-input");
 const quickAddTaskForm = document.getElementById("quick-add-task-form");
 
@@ -29,11 +23,7 @@ const loadTaskEvents = (myList) => {
     renderTasks();
   });
 
-  // move to ui events
-  addTaskBtn.addEventListener("click", () => {
-    addTaskModal.showModal();
-  });
-
+  // Add task
   addTaskModal.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -55,28 +45,10 @@ const loadTaskEvents = (myList) => {
       renderTasks();
     }
 
-    addTaskModal.close();
-    addTaskForm.reset();
+    closeAddTaskForm();
   });
 
-  cancelAddTaskBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    addTaskModal.close();
-    addTaskForm.reset();
-  });
-
-  quickAddTaskBtn.addEventListener("click", () => {
-    quickAddTaskBtn.classList.add("hidden");
-    quickAddTaskContainer.classList.remove("hidden");
-    quickAddTaskInput.focus();
-  });
-
-  quickAddTaskInput.addEventListener("blur", () => {
-    quickAddTaskInput.value = "";
-    quickAddTaskBtn.classList.remove("hidden");
-    quickAddTaskContainer.classList.add("hidden");
-  });
-
+  // Quick add task
   quickAddTaskForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -96,9 +68,7 @@ const loadTaskEvents = (myList) => {
       renderTasks();
     }
 
-    quickAddTaskInput.value = "";
-    quickAddTaskBtn.classList.remove("hidden");
-    quickAddTaskContainer.classList.add("hidden");
+    closeQuickAddTask();
   });
 };
 

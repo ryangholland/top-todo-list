@@ -7,6 +7,7 @@ import loadStaticImages from "./events/staticImages";
 import loadTaskEvents from "./events/taskEvents";
 import loadProjectEvents from "./events/projectEvents";
 import loadScreenEvents from "./events/screenEvents";
+import loadUiEvents from "./events/uiEvents";
 
 const myList = new List();
 const exampleProjectOne = new Project("Test Project");
@@ -73,6 +74,7 @@ function changeScreen(newScreen) {
 
 function init() {
   loadStaticImages();
+  loadUiEvents();
   loadTaskEvents(myList);
   loadProjectEvents(myList);
   loadScreenEvents(myList);
