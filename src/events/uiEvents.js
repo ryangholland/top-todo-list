@@ -1,4 +1,5 @@
 import TaskDisplay from "../components/TaskDisplay";
+import ProjectDisplay from "../components/ProjectDisplay";
 
 const addTaskBtn = document.getElementById("add-task");
 const addTaskModal = document.getElementById("add-task-modal");
@@ -103,10 +104,25 @@ function renderTasks(list) {
   });
 }
 
+function renderProjects(list) {
+  const projectDiv = document.getElementById("project-list");
+  projectDiv.innerHTML = "";
+  list.projects.forEach((project) => {
+    const projectDisplay = new ProjectDisplay(project);
+    projectDiv.append(projectDisplay.render());
+  });
+}
+
 function changeScreen(list, newScreen) {
   list.updateScreen(newScreen);
   renderTasks(list);
 }
 
 export default loadUiEvents;
-export { closeAddTaskForm, closeQuickAddTask, closeAddProject, renderTasks };
+export {
+  closeAddTaskForm,
+  closeQuickAddTask,
+  closeAddProject,
+  renderTasks,
+  renderProjects,
+};

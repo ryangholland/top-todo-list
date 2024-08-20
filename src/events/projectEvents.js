@@ -1,5 +1,5 @@
 import Project from "../models/Project";
-import { renderProjects } from "../app";
+import { renderProjects } from "./uiEvents";
 import { closeAddProject } from "./uiEvents";
 
 const newProjectInput = document.getElementById("new-project-input");
@@ -13,7 +13,7 @@ const loadProjectEvents = (myList) => {
     if (newProjectInput.value.trim() !== "") {
       const newProject = new Project(newProjectInput.value);
       myList.addProject(newProject);
-      renderProjects();
+      renderProjects(myList);
     }
 
     closeAddProject();
