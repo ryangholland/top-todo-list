@@ -6,7 +6,6 @@ import ProjectDisplay from "./components/ProjectDisplay";
 import loadStaticImages from "./events/staticImages";
 import loadTaskEvents from "./events/taskEvents";
 import loadProjectEvents from "./events/projectEvents";
-import loadScreenEvents from "./events/screenEvents";
 import loadUiEvents from "./events/uiEvents";
 
 const myList = new List();
@@ -64,7 +63,6 @@ function init() {
   loadUiEvents();
   loadTaskEvents(myList);
   loadProjectEvents(myList);
-  loadScreenEvents(myList);
   renderTasks();
   renderProjects();
 }

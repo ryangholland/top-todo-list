@@ -1,3 +1,5 @@
+import { changeScreen } from "../app";
+
 const addTaskBtn = document.getElementById("add-task");
 const addTaskModal = document.getElementById("add-task-modal");
 const cancelAddTaskBtn = document.getElementById("cancel-add-task");
@@ -10,6 +12,9 @@ const quickAddTaskInput = document.getElementById("quick-add-task-input");
 const addProjectBtn = document.getElementById("add-project");
 const newProjectContainer = document.getElementById("new-project-container");
 const newProjectInput = document.getElementById("new-project-input");
+const sidebar = document.querySelector(".sidebar");
+const screenTitle = document.getElementById("screen-title");
+const screenSelectors = document.querySelectorAll(".screen-selector");
 
 const loadUiEvents = () => {
   // Open "Add Task" modal
@@ -46,6 +51,18 @@ const loadUiEvents = () => {
   newProjectInput.addEventListener("blur", () => {
     closeAddProject();
   });
+
+  // Select screen
+  sidebar.addEventListener("click", (e) => {
+    if (!e.target.classList.contains("screen-selector")) return;
+    screenSelectors.forEach((selector) =>
+      selector.classList.remove("screen-selected")
+    );
+    e.target.classList.add("screen-selected");
+    screenTitle.textContent = e.target.textContent;
+    changeScreen(e.target.textContent.trim());
+  });
+  
 };
 
 function closeAddTaskForm() {

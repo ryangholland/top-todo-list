@@ -1,5 +1,4 @@
 import projectImg from "../assets/list-box-outline.svg";
-import { addSelectScreenEventListener } from "../events/screenEvents";
 
 export default class ProjectDisplay {
   constructor(project) {
@@ -17,7 +16,7 @@ export default class ProjectDisplay {
 
     button.append(img);
     button.append(p);
-    addSelectScreenEventListener(button);
+
     return button;
   }
 }
