@@ -33,7 +33,14 @@ const loadTaskEvents = (myList) => {
     const priorityInput = document.getElementById("priority");
     const descriptionInput = document.getElementById("description");
 
-    if (taskTitleInput.value.trim() !== "") {
+    if (myList.openTask) {
+      myList.openTask.title = taskTitleInput.value;
+      myList.openTask.project = taskProjectInput.value;
+      myList.openTask.dueDate = dueDateInput.value;
+      myList.openTask.priority = priorityInput.value;
+      myList.openTask.description = descriptionInput.value;
+      myList.openTask = null;
+    } else if (taskTitleInput.value.trim() !== "") {
       const newTask = new Task(
         taskTitleInput.value,
         taskProjectInput.value,
@@ -42,9 +49,9 @@ const loadTaskEvents = (myList) => {
         descriptionInput.value
       );
       myList.addTask(newTask);
-      renderTasks(myList);
     }
 
+    renderTasks(myList);
     closeAddTaskForm();
   });
 

@@ -27,6 +27,21 @@ const loadUiEvents = (myList) => {
   // Open "Add Task" modal in edit mode
   activeTasks.addEventListener("click", (e) => {
     if (!e.target.classList.contains("pencil-btn")) return;
+    
+    myList.openTask = myList.getTaskById(e.target.dataset.id);
+
+    const taskTitleInput = document.getElementById("taskTitle");
+    const taskProjectInput = document.getElementById("taskProject");
+    const dueDateInput = document.getElementById("dueDate");
+    const priorityInput = document.getElementById("priority");
+    const descriptionInput = document.getElementById("description");
+
+    taskTitleInput.value = myList.openTask.title;
+    taskProjectInput.value = myList.openTask.project;
+    dueDateInput.value = myList.openTask.dueDate;
+    priorityInput.value = myList.openTask.priority;
+    descriptionInput.value = myList.openTask.description;
+
     addTaskModal.showModal();
   })
 

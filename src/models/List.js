@@ -3,6 +3,7 @@ export default class List {
     this.tasks = [];
     this.projects = [];
     this.screen = "Inbox";
+    this.openTask = null;
   }
 
   addTask(newTask) {
