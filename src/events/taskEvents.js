@@ -65,7 +65,7 @@ const loadTaskEvents = (myList) => {
 
       const newTask = new Task(quickAddTaskInput.value, proj);
       myList.addTask(newTask);
-      renderTasks();
+      renderTasks(myList);
     }
 
     closeQuickAddTask();
