@@ -16,12 +16,19 @@ const newProjectInput = document.getElementById("new-project-input");
 const sidebar = document.querySelector(".sidebar");
 const screenTitle = document.getElementById("screen-title");
 const screenSelectors = document.querySelectorAll(".screen-selector");
+const activeTasks = document.getElementById("active-tasks");
 
 const loadUiEvents = (myList) => {
   // Open "Add Task" modal
   addTaskBtn.addEventListener("click", () => {
     addTaskModal.showModal();
   });
+
+  // Open "Add Task" modal in edit mode
+  activeTasks.addEventListener("click", (e) => {
+    if (!e.target.classList.contains("pencil-btn")) return;
+    addTaskModal.showModal();
+  })
 
   // Cancel "Add Task" modal
   cancelAddTaskBtn.addEventListener("click", (e) => {

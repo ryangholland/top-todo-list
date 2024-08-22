@@ -13,14 +13,14 @@ const loadTaskEvents = (myList) => {
     if (!e.target.classList.contains("toggle-btn")) return;
     const selectedTask = myList.getTaskById(e.target.dataset.id);
     selectedTask.toggleCompleted();
-    renderTasks();
+    renderTasks(myList);
   });
 
   // Delete task
   activeTasks.addEventListener("click", (e) => {
     if (!e.target.classList.contains("trash-btn")) return;
     myList.deleteTask(e.target.dataset.id);
-    renderTasks();
+    renderTasks(myList);
   });
 
   // Add task
@@ -42,7 +42,7 @@ const loadTaskEvents = (myList) => {
         descriptionInput.value
       );
       myList.addTask(newTask);
-      renderTasks();
+      renderTasks(myList);
     }
 
     closeAddTaskForm();
