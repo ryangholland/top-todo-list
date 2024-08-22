@@ -26,12 +26,18 @@
   cursor: pointer;
 }
 
-.trashImg {
+.trashImg,
+.pencilImg {
   pointer-events: none;
 }
 
-.trash-btn {
+.trash-btn,
+.pencil-btn {
   cursor: pointer;
+}
+
+.pencil-btn {
+  margin-right: 0.5rem;
 }
 
 .task-details-row {

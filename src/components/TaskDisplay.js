@@ -4,6 +4,7 @@ import medPrio from "../assets/med-prio.svg";
 import note from "../assets/note-text.svg";
 import clock from "../assets/calendar-clock.svg";
 import trash from "../assets/delete.svg";
+import pencil from "../assets/pencil.svg";
 
 export default class TaskDisplay {
   constructor(task) {
@@ -44,14 +45,24 @@ export default class TaskDisplay {
 
     // Top Right
     const topRight = document.createElement("div");
+
     const trashButton = document.createElement("button");
     const trashImg = document.createElement("img");
     trashButton.dataset.id = this.task.id;
     trashButton.classList.add("trash-btn");
     trashImg.classList.add("trashImg");
     trashImg.src = trash;
-
     trashButton.append(trashImg);
+
+    const pencilButton = document.createElement("button");
+    const pencilImg = document.createElement("img");
+    pencilButton.dataset.id = this.task.id;
+    pencilButton.classList.add("pencil-btn");
+    pencilImg.classList.add("pencilImg");
+    pencilImg.src = pencil;
+    pencilButton.append(pencilImg);
+    
+    topRight.append(pencilButton);
     topRight.append(trashButton);
     topRow.append(topRight);
     taskContainer.append(topRow);
