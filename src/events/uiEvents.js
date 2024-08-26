@@ -15,7 +15,7 @@ const newProjectContainer = document.getElementById("new-project-container");
 const newProjectInput = document.getElementById("new-project-input");
 const sidebar = document.querySelector(".sidebar");
 const screenTitle = document.getElementById("screen-title");
-const screenSelectors = document.querySelectorAll(".screen-selector");
+
 const activeTasks = document.getElementById("active-tasks");
 
 const loadUiEvents = (myList) => {
@@ -78,6 +78,7 @@ const loadUiEvents = (myList) => {
   // Select screen
   sidebar.addEventListener("click", (e) => {
     if (!e.target.classList.contains("screen-selector")) return;
+    const screenSelectors = document.querySelectorAll(".screen-selector");
     screenSelectors.forEach((selector) =>
       selector.classList.remove("screen-selected")
     );

@@ -56,9 +56,16 @@ main {
 .quick-add-group {
   width: 400px;
 }
+
 #quick-add-task-container {
   width: 400px;
 }
+
+.projectImg,
+.screen-selector p {
+  pointer-events: none;
+}
+
 .content {
   padding: 1.5rem 2.5rem;
   background-color: var(--lightest-gray);

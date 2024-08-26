@@ -7,15 +7,15 @@ import loadProjectEvents from "./events/projectEvents";
 import loadUiEvents from "./events/uiEvents";
 import { renderTasks, renderProjects } from "./events/uiEvents";
 
-const myList = new List();
-const exampleProjectOne = new Project("Test Project");
-const exampleTaskOne = new Task("Test Task 1", "Test Project");
-const exampleTaskTwo = new Task("Test Task 2");
-myList.addTask(exampleTaskOne);
-myList.addTask(exampleTaskTwo);
-myList.addProject(exampleProjectOne);
-
 function init() {
+  const myList = new List();
+  const exampleProjectOne = new Project("Test Project");
+  const exampleTaskOne = new Task("Test Task 1", "Test Project");
+  const exampleTaskTwo = new Task("Test Task 2");
+  myList.addTask(exampleTaskOne);
+  myList.addTask(exampleTaskTwo);
+  myList.addProject(exampleProjectOne);
+
   loadStaticImages();
   loadUiEvents(myList);
   loadTaskEvents(myList);
