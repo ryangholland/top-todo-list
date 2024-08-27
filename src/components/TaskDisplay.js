@@ -6,6 +6,8 @@ import clock from "../assets/calendar-clock.svg";
 import trash from "../assets/delete.svg";
 import pencil from "../assets/pencil.svg";
 
+import { isToday, isTomorrow, isPast } from "date-fns";
+
 export default class TaskDisplay {
   constructor(task) {
     this.task = task;
@@ -61,7 +63,7 @@ export default class TaskDisplay {
     pencilImg.classList.add("pencilImg");
     pencilImg.src = pencil;
     pencilButton.append(pencilImg);
-    
+
     topRight.append(pencilButton);
     topRight.append(trashButton);
     topRow.append(topRight);
@@ -79,7 +81,26 @@ export default class TaskDisplay {
         dueImg.classList.add("clockImg");
         dueImg.src = clock;
         const dueSpan = document.createElement("span");
-        dueSpan.textContent = this.task.dueDate;
+
+        let dueText;
+        let adjustedDate = new Date(this.task.dueDate);
+        adjustedDate.setMinutes(
+          adjustedDate.getMinutes() + adjustedDate.getTimezoneOffset()
+        );
+
+        if (isToday(adjustedDate)) {
+          dueText = "Today";
+        } else if (isTomorrow(adjustedDate)) {
+          dueText = "Tomorrow";
+        } else if (isPast(adjustedDate)) {
+          dueText = "Past Due";
+          dueP.style.color = "firebrick";
+        } else {
+          dueText = this.task.dueDate;
+        }
+
+        dueSpan.textContent = dueText;
+
         dueP.append(dueImg);
         dueP.append(dueSpan);
         bottomRow.append(dueP);
