@@ -1,3 +1,5 @@
+import { isToday, isTomorrow, isPast } from "date-fns";
+
 export default class Task {
   constructor(
     title,
@@ -37,5 +39,22 @@ export default class Task {
 
   updateProject(newProject) {
     this.project = newProject;
+  }
+
+  getAdjustedDate() {
+    let adjustedDate = new Date(this.dueDate);
+    adjustedDate.setMinutes(
+      adjustedDate.getMinutes() + adjustedDate.getTimezoneOffset()
+    );
+
+    if (isToday(adjustedDate)) {
+      return "Today";
+    } else if (isTomorrow(adjustedDate)) {
+      return "Tomorrow";
+    } else if (isPast(adjustedDate)) {
+      return "Past Due";
+    } else {
+      return this.dueDate;
+    }
   }
 }

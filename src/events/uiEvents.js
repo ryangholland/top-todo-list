@@ -1,5 +1,6 @@
 import TaskDisplay from "../components/TaskDisplay";
 import ProjectDisplay from "../components/ProjectDisplay";
+import { differenceInCalendarDays } from "date-fns";
 
 const addTaskBtn = document.getElementById("add-task");
 const addTaskModal = document.getElementById("add-task-modal");
@@ -27,7 +28,7 @@ const loadUiEvents = (myList) => {
   // Open "Add Task" modal in edit mode
   activeTasks.addEventListener("click", (e) => {
     if (!e.target.classList.contains("pencil-btn")) return;
-    
+
     myList.openTask = myList.getTaskById(e.target.dataset.id);
 
     const taskTitleInput = document.getElementById("taskTitle");
@@ -43,7 +44,7 @@ const loadUiEvents = (myList) => {
     descriptionInput.value = myList.openTask.description;
 
     addTaskModal.showModal();
-  })
+  });
 
   // Cancel "Add Task" modal
   cancelAddTaskBtn.addEventListener("click", (e) => {
@@ -118,9 +119,15 @@ function renderTasks(list) {
     if (list.screen == "Inbox") {
       if (task.project == "") renderTask(task);
     } else if (list.screen == "Today") {
-      renderTask(task);
+      if (
+        task.getAdjustedDate() == "Today" ||
+        task.getAdjustedDate() == "Past Due"
+      )
+        renderTask(task);
     } else if (list.screen == "This Week") {
-      renderTask(task);
+      const today = new Date();
+      const diffInDays = differenceInCalendarDays(task.dueDate, today);
+      if (diffInDays <= 7) renderTask(task);
     } else {
       if (task.project == list.screen) renderTask(task);
     }
