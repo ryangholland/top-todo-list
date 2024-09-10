@@ -1,6 +1,7 @@
 import Task from "../models/Task";
 import { renderTasks } from "./uiEvents";
 import { closeAddTaskForm, closeQuickAddTask } from "./uiEvents";
+import { saveList } from "../utils/storage";
 
 const activeTasks = document.getElementById("active-tasks");
 const addTaskModal = document.getElementById("add-task-modal");
@@ -14,6 +15,7 @@ const loadTaskEvents = (myList) => {
     const selectedTask = myList.getTaskById(e.target.dataset.id);
     selectedTask.toggleCompleted();
     renderTasks(myList);
+    saveList(myList);
   });
 
   // Delete task
@@ -21,6 +23,7 @@ const loadTaskEvents = (myList) => {
     if (!e.target.classList.contains("trash-btn")) return;
     myList.deleteTask(e.target.dataset.id);
     renderTasks(myList);
+    saveList(myList);
   });
 
   // Add task
@@ -53,6 +56,7 @@ const loadTaskEvents = (myList) => {
 
     renderTasks(myList);
     closeAddTaskForm();
+    saveList(myList);
   });
 
   // Quick add task
@@ -73,6 +77,7 @@ const loadTaskEvents = (myList) => {
       const newTask = new Task(quickAddTaskInput.value, proj);
       myList.addTask(newTask);
       renderTasks(myList);
+      saveList(myList);
     }
 
     closeQuickAddTask();

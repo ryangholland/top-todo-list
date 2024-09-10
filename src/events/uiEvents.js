@@ -1,6 +1,8 @@
 import TaskDisplay from "../components/TaskDisplay";
 import ProjectDisplay from "../components/ProjectDisplay";
 import { differenceInCalendarDays } from "date-fns";
+import { saveList } from "../utils/storage";
+import { getAdjustedDate } from "../utils/dates";
 
 const addTaskBtn = document.getElementById("add-task");
 const addTaskModal = document.getElementById("add-task-modal");
@@ -119,11 +121,14 @@ function renderTasks(list) {
     if (list.screen == "Inbox") {
       if (task.project == "") renderTask(task);
     } else if (list.screen == "Today") {
+      console.log("beep");
       if (
-        task.getAdjustedDate() == "Today" ||
-        task.getAdjustedDate() == "Past Due"
-      )
+        getAdjustedDate(task.dueDate) === "Today" ||
+        getAdjustedDate(task.dueDate) === "Past Due"
+      ) {
+        console.log("boop")
         renderTask(task);
+      }
     } else if (list.screen == "This Week") {
       const today = new Date();
       const diffInDays = differenceInCalendarDays(task.dueDate, today);
@@ -146,6 +151,7 @@ function renderProjects(list) {
 function changeScreen(list, newScreen) {
   list.updateScreen(newScreen);
   renderTasks(list);
+  saveList(list);
 }
 
 export default loadUiEvents;
