@@ -126,7 +126,7 @@ function renderTasks(list) {
         getAdjustedDate(task.dueDate) === "Today" ||
         getAdjustedDate(task.dueDate) === "Past Due"
       ) {
-        console.log("boop")
+        console.log("boop");
         renderTask(task);
       }
     } else if (list.screen == "This Week") {
@@ -145,6 +145,14 @@ function renderProjects(list) {
   list.projects.forEach((project) => {
     const projectDisplay = new ProjectDisplay(project);
     projectDiv.append(projectDisplay.render());
+  });
+
+  const selectElement = document.getElementById("taskProject");
+  list.projects.forEach((project) => {
+    const newOption = document.createElement("option");
+    newOption.value = project.title;
+    newOption.text = project.title;
+    selectElement.add(newOption);
   });
 }
 
