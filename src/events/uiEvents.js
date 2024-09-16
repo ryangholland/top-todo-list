@@ -6,6 +6,7 @@ import { getAdjustedDate } from "../utils/dates";
 
 const addTaskBtn = document.getElementById("add-task");
 const addTaskModal = document.getElementById("add-task-modal");
+const addTaskModalHeading = document.getElementById("add-task-modal-heading");
 const cancelAddTaskBtn = document.getElementById("cancel-add-task");
 const addTaskForm = document.getElementById("add-task-form");
 const quickAddTaskBtn = document.getElementById("quick-add-task");
@@ -24,6 +25,7 @@ const activeTasks = document.getElementById("active-tasks");
 const loadUiEvents = (myList) => {
   // Open "Add Task" modal
   addTaskBtn.addEventListener("click", () => {
+    addTaskModalHeading.textContent = "Add Task:";
     addTaskModal.showModal();
   });
 
@@ -44,6 +46,8 @@ const loadUiEvents = (myList) => {
     dueDateInput.value = myList.openTask.dueDate;
     priorityInput.value = myList.openTask.priority;
     descriptionInput.value = myList.openTask.description;
+
+    addTaskModalHeading.textContent = "Edit Task:";
 
     addTaskModal.showModal();
   });
