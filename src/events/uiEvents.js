@@ -141,6 +141,13 @@ function renderTasks(list) {
       if (task.project == list.screen) renderTask(task);
     }
   });
+
+  if (contentDiv.innerHTML == "") {
+    const nothingHereP = document.createElement("p");
+    nothingHereP.classList.add("nothing-here")
+    nothingHereP.textContent = "No Tasks to Display";
+    contentDiv.appendChild(nothingHereP);
+  }
 }
 
 function renderProjects(list) {
