@@ -19,7 +19,9 @@ const newProjectContainer = document.getElementById("new-project-container");
 const newProjectInput = document.getElementById("new-project-input");
 const sidebar = document.querySelector(".sidebar");
 const screenTitle = document.getElementById("screen-title");
-
+const editDeleteProjContainer = document.getElementById(
+  "edit-delete-project-container"
+);
 const activeTasks = document.getElementById("active-tasks");
 
 const loadUiEvents = (myList) => {
@@ -92,7 +94,16 @@ const loadUiEvents = (myList) => {
     e.target.classList.add("screen-selected");
     screenTitle.textContent = e.target.textContent;
 
-    // if screen ISN'T Inbox/Today/This Week, edit delete visible
+    // if screen ISN'T Inbox/Today/This Week, edit/delete buttons visible
+    if (
+      e.target.textContent.trim() == "Inbox" ||
+      e.target.textContent.trim() == "Today" ||
+      e.target.textContent.trim() == "This Week"
+    ) {
+      editDeleteProjContainer.classList.add("hidden");
+    } else {
+      editDeleteProjContainer.classList.remove("hidden");
+    }
 
     changeScreen(myList, e.target.textContent.trim());
   });
@@ -147,7 +158,7 @@ function renderTasks(list) {
 
   if (contentDiv.innerHTML == "") {
     const nothingHereP = document.createElement("p");
-    nothingHereP.classList.add("nothing-here")
+    nothingHereP.classList.add("nothing-here");
     nothingHereP.textContent = "No Tasks to Display";
     contentDiv.appendChild(nothingHereP);
   }

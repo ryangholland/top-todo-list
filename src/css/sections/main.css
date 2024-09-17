@@ -78,10 +78,6 @@ main {
   max-width: 1000px;
 }
 
-#edit-delete-project-container {
-  display: none;
-}
-
 .nothing-here {
   margin-left: 1.5rem;
 }
