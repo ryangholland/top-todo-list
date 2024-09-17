@@ -69,8 +69,12 @@
             <button class="screen-selector screen-selected">
               <img id="inboxImg" alt="Inbox" /> Inbox
             </button>
-            <button class="screen-selector"><img id="todayImg" alt="Today" /> Today</button>
-            <button class="screen-selector"><img id="weekImg" alt="This Week" /> This Week</button>
+            <button class="screen-selector">
+              <img id="todayImg" alt="Today" /> Today
+            </button>
+            <button class="screen-selector">
+              <img id="weekImg" alt="This Week" /> This Week
+            </button>
           </div>
           <hr />
           <h3>Projects</h3>
@@ -90,7 +94,15 @@
           </div>
         </div>
         <div class="content">
-          <h2 id="screen-title">Inbox</h2>
+          <div id="screen-title-container">
+            <h2 id="screen-title">Inbox</h2>
+            <div id="edit-delete-project-container">
+              <button class="pencil-btn">
+                <img class="pencilImg" />
+              </button>
+              <button class="trash-btn"><img class="trashImg" /></button>
+            </div>
+          </div>
           <hr />
           <div id="active-tasks" class="flow">
             <div class="task-container">
@@ -135,7 +147,7 @@
               </div>
             </div>
           </div>
-          <hr>
+          <hr />
           <div class="button-group quick-add-group">
             <button id="quick-add-task">
               <img class="plusImg" alt="Plus Symbol" />Quick Add Task

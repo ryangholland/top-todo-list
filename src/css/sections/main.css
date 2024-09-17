@@ -71,6 +71,17 @@ main {
   background-color: var(--lightest-gray);
 }
 
+#screen-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+}
+
+#edit-delete-project-container {
+  display: none;
+}
+
 .nothing-here {
   margin-left: 1.5rem;
 }

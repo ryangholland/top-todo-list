@@ -91,6 +91,9 @@ const loadUiEvents = (myList) => {
     );
     e.target.classList.add("screen-selected");
     screenTitle.textContent = e.target.textContent;
+
+    // if screen ISN'T Inbox/Today/This Week, edit delete visible
+
     changeScreen(myList, e.target.textContent.trim());
   });
 };
