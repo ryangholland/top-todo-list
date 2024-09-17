@@ -52,6 +52,25 @@
       </form>
     </dialog>
 
+    <dialog id="edit-project-modal">
+      <h3>Edit Project:</h3>
+      <hr />
+      <form id="edit-project-form" class="flow">
+        <div class="form-group flow-sm">
+          <label for="projectTitle">Title</label>
+          <input type="text" id="projectTitle" name="projectTitle" required />
+        </div>
+        <div class="form-btns">
+          <button type="submit" class="submit-btn" id="submit-edit-project">
+            Submit
+          </button>
+          <button class="cancel-btn" id="cancel-edit-project">Cancel</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="delete-project-modal"></dialog>
+
     <div class="body-grid">
       <header>
         <img id="logoImg" alt="Todo List Logo" />
