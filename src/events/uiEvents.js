@@ -115,6 +115,7 @@ const loadUiEvents = (myList) => {
   editProjectBtn.addEventListener("click", () => {
     const projectTitleInput = document.getElementById("projectTitle");
     projectTitleInput.value = myList.screen;
+    myList.openProject = projectTitleInput.value;
     editProjectModal.showModal();
   });
 

@@ -27,8 +27,10 @@ const loadProjectEvents = (myList) => {
     e.preventDefault();
 
     let currentProject = myList.projects.find(
-      (project) => project.title === myList.screen
+      (project) => project.title === myList.openProject
     );
+
+    console.log(currentProject)
 
     const projectTitleInput = document.getElementById("projectTitle");
     currentProject.title = projectTitleInput.value;
@@ -36,6 +38,7 @@ const loadProjectEvents = (myList) => {
     const screenTitle = document.getElementById("screen-title");
     screenTitle.textContent = currentProject.title;
 
+    myList.updateScreen(currentProject.title)
     renderProjects(myList);
     saveList(myList);
     editProjectModal.close();

@@ -4,6 +4,7 @@ export default class List {
     this.projects = [];
     this.screen = "Inbox";
     this.openTask = null;
+    this.openProject = null;
   }
 
   addTask(newTask) {
