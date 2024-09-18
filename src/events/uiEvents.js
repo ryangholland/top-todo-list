@@ -23,6 +23,9 @@ const editDeleteProjContainer = document.getElementById(
   "edit-delete-project-container"
 );
 const activeTasks = document.getElementById("active-tasks");
+const editProjectBtn = document.getElementById("edit-project-btn");
+const editProjectModal = document.getElementById("edit-project-modal");
+const cancelEditProjectBtn = document.getElementById("cancel-edit-project");
 
 const loadUiEvents = (myList) => {
   // Open "Add Task" modal
@@ -106,6 +109,23 @@ const loadUiEvents = (myList) => {
     }
 
     changeScreen(myList, e.target.textContent.trim());
+  });
+
+  // Open "Edit Project" modal
+  editProjectBtn.addEventListener("click", () => {
+    const projectTitleInput = document.getElementById("projectTitle");
+    projectTitleInput.value = myList.screen;
+    let currentProject = myList.projects.find(
+      (project) => project.title === myList.screen
+    );
+
+    editProjectModal.showModal();
+  });
+
+  // Cancel "Edit Project" modal
+  cancelEditProjectBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    editProjectModal.close();
   });
 };
 

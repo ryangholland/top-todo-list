@@ -5,6 +5,7 @@ import { saveList } from "../utils/storage";
 
 const newProjectInput = document.getElementById("new-project-input");
 const newProjectForm = document.getElementById("new-project-form");
+const editProjectModal = document.getElementById("edit-project-modal");
 
 const loadProjectEvents = (myList) => {
   // Add Project
@@ -19,6 +20,22 @@ const loadProjectEvents = (myList) => {
     }
 
     closeAddProject();
+  });
+
+  // Edit Project
+  editProjectModal.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    let currentProject = myList.projects.find(
+      (project) => project.title === myList.screen
+    );
+
+    const projectTitleInput = document.getElementById("projectTitle");
+    currentProject.title = projectTitleInput.value;
+
+    renderProjects(myList);
+    saveList(myList);
+    editProjectModal.close();
   });
 };
 
