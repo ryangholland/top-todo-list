@@ -115,10 +115,6 @@ const loadUiEvents = (myList) => {
   editProjectBtn.addEventListener("click", () => {
     const projectTitleInput = document.getElementById("projectTitle");
     projectTitleInput.value = myList.screen;
-    let currentProject = myList.projects.find(
-      (project) => project.title === myList.screen
-    );
-
     editProjectModal.showModal();
   });
 
@@ -214,4 +210,5 @@ export {
   closeAddProject,
   renderTasks,
   renderProjects,
+  
 };

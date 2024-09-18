@@ -33,6 +33,9 @@ const loadProjectEvents = (myList) => {
     const projectTitleInput = document.getElementById("projectTitle");
     currentProject.title = projectTitleInput.value;
 
+    const screenTitle = document.getElementById("screen-title");
+    screenTitle.textContent = currentProject.title;
+
     renderProjects(myList);
     saveList(myList);
     editProjectModal.close();
