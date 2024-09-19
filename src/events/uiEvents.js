@@ -199,6 +199,10 @@ function renderProjects(list) {
     projectDiv.append(projectDisplay.render());
   });
 
+  resetProjectDropdown(list);
+}
+
+function resetProjectDropdown(list) {
   const selectElement = document.getElementById("taskProject");
   selectElement.innerHTML = "";
   const defaultOption = document.createElement("option");

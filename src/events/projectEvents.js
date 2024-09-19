@@ -53,7 +53,6 @@ const loadProjectEvents = (myList) => {
       "delete-project-tasks"
     );
 
-    console.log(`Deleting Project: ${myList.openProject}`);
     myList.projects = myList.projects.filter(
       (project) => project.title !== myList.openProject
     );
@@ -66,7 +65,6 @@ const loadProjectEvents = (myList) => {
       );
     } else {
       myList.tasks.forEach((task) => {
-        console.log(task);
         if (task.project == myList.openProject) task.project = "";
       });
     }
