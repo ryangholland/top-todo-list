@@ -90,11 +90,7 @@ const loadUiEvents = (myList) => {
   // Select screen
   sidebar.addEventListener("click", (e) => {
     if (!e.target.classList.contains("screen-selector")) return;
-    const screenSelectors = document.querySelectorAll(".screen-selector");
-    screenSelectors.forEach((selector) =>
-      selector.classList.remove("screen-selected")
-    );
-    e.target.classList.add("screen-selected");
+    shadeScreenName(e.target.textContent)
     screenTitle.textContent = e.target.textContent;
 
     // if screen ISN'T Inbox/Today/This Week, edit/delete buttons visible
@@ -202,6 +198,17 @@ function changeScreen(list, newScreen) {
   saveList(list);
 }
 
+function shadeScreenName(title) {
+  const screenSelectors = document.querySelectorAll(".screen-selector");
+  screenSelectors.forEach((selector) => {
+    console.log(selector.textContent.trim());
+    selector.classList.remove("screen-selected");
+    if (selector.textContent.trim() == title) {
+      selector.classList.add("screen-selected");
+    }
+  });
+}
+
 export default loadUiEvents;
 export {
   closeAddTaskForm,
@@ -209,4 +216,5 @@ export {
   closeAddProject,
   renderTasks,
   renderProjects,
+  shadeScreenName,
 };

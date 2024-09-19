@@ -1,7 +1,9 @@
 import Project from "../models/Project";
 import { renderProjects } from "./uiEvents";
 import { closeAddProject } from "./uiEvents";
+import { shadeScreenName } from "./uiEvents";
 import { saveList } from "../utils/storage";
+
 
 const newProjectInput = document.getElementById("new-project-input");
 const newProjectForm = document.getElementById("new-project-form");
@@ -38,16 +40,7 @@ const loadProjectEvents = (myList) => {
 
     myList.updateScreen(currentProject.title);
     renderProjects(myList);
-
-    const screenSelectors = document.querySelectorAll(".screen-selector");
-    screenSelectors.forEach((selector) => {
-      console.log(selector.textContent.trim())
-      selector.classList.remove("screen-selected");
-      if (selector.textContent.trim() == currentProject.title) {
-        selector.classList.add("screen-selected");
-      }
-    });
-    
+    shadeScreenName(currentProject.title);
     saveList(myList);
     editProjectModal.close();
   });
