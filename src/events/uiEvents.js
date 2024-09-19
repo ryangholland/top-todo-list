@@ -90,7 +90,7 @@ const loadUiEvents = (myList) => {
   // Select screen
   sidebar.addEventListener("click", (e) => {
     if (!e.target.classList.contains("screen-selector")) return;
-    shadeScreenName(e.target.textContent)
+    shadeScreenName(e.target.textContent.trim())
     screenTitle.textContent = e.target.textContent;
 
     // if screen ISN'T Inbox/Today/This Week, edit/delete buttons visible

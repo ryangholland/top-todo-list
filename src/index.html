@@ -69,7 +69,33 @@
       </form>
     </dialog>
 
-    <dialog id="delete-project-modal"></dialog>
+    <dialog id="delete-project-modal">
+      <h3 class="mw-c">
+        Are you sure you want to delete
+        <span id="delete-project-name">Project</span>?
+      </h3>
+      <hr />
+      <form id="delete-project-form" class="flow">
+        <div class="form-group flow-sm">
+          <div class="flex-row flex-center">
+            <input
+              type="checkbox"
+              name="delete-project-tasks"
+              id="delete-project-tasks"
+              checked
+            />
+            <label for="delete-project-tasks">Delete all tasks in this project?</label>
+          </div>
+        <p>If tasks aren't deleted, they will be sent to the inbox.</p>
+        </div>
+        <div class="form-btns">
+          <button type="submit" class="submit-btn" id="submit-edit-project">
+            Yes
+          </button>
+          <button class="cancel-btn" id="cancel-edit-project">No</button>
+        </div>
+      </form>
+    </dialog>
 
     <div class="body-grid">
       <header>

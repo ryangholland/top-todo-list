@@ -7,6 +7,10 @@
   gap: 0.5rem;
 }
 
+.flex-center {
+  justify-content: center;
+}
+
 .hidden {
   display: none !important;
 }
@@ -17,4 +21,9 @@
 
 .submit-btn {
   background-color: #bbf7d0;
+}
+
+.mw-c {
+  max-width: 350px;
+  text-align: center;
 }
