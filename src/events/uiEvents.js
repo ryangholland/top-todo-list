@@ -95,7 +95,6 @@ const loadUiEvents = (myList) => {
   sidebar.addEventListener("click", (e) => {
     if (!e.target.classList.contains("screen-selector")) return;
     shadeScreenName(e.target.textContent.trim())
-    screenTitle.textContent = e.target.textContent;
 
     // if screen ISN'T Inbox/Today/This Week, edit/delete buttons visible
     if (
@@ -129,6 +128,7 @@ const loadUiEvents = (myList) => {
   deleteProjectBtn.addEventListener("click", () => {
     const deleteProjectSpan = document.getElementById("delete-project-name")
     deleteProjectSpan.textContent = myList.screen;
+    myList.openProject = myList.screen;
     deleteProjectModal.showModal();
   });
 
@@ -211,6 +211,7 @@ function renderProjects(list) {
 
 function changeScreen(list, newScreen) {
   list.updateScreen(newScreen);
+  screenTitle.textContent = newScreen;
   renderTasks(list);
   saveList(list);
 }
@@ -218,7 +219,6 @@ function changeScreen(list, newScreen) {
 function shadeScreenName(title) {
   const screenSelectors = document.querySelectorAll(".screen-selector");
   screenSelectors.forEach((selector) => {
-    console.log(selector.textContent.trim());
     selector.classList.remove("screen-selected");
     if (selector.textContent.trim() == title) {
       selector.classList.add("screen-selected");
@@ -234,4 +234,5 @@ export {
   renderTasks,
   renderProjects,
   shadeScreenName,
+  changeScreen
 };
