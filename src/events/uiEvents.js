@@ -156,12 +156,10 @@ function renderTasks(list) {
     if (list.screen == "Inbox") {
       if (task.project == "") renderTask(task);
     } else if (list.screen == "Today") {
-      console.log("beep");
       if (
         getAdjustedDate(task.dueDate) === "Today" ||
         getAdjustedDate(task.dueDate) === "Past Due"
       ) {
-        console.log("boop");
         renderTask(task);
       }
     } else if (list.screen == "This Week") {
@@ -211,5 +209,4 @@ export {
   closeAddProject,
   renderTasks,
   renderProjects,
-  
 };

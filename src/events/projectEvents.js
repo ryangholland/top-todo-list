@@ -30,16 +30,24 @@ const loadProjectEvents = (myList) => {
       (project) => project.title === myList.openProject
     );
 
-    console.log(currentProject)
-
     const projectTitleInput = document.getElementById("projectTitle");
     currentProject.title = projectTitleInput.value;
 
     const screenTitle = document.getElementById("screen-title");
     screenTitle.textContent = currentProject.title;
 
-    myList.updateScreen(currentProject.title)
+    myList.updateScreen(currentProject.title);
     renderProjects(myList);
+
+    const screenSelectors = document.querySelectorAll(".screen-selector");
+    screenSelectors.forEach((selector) => {
+      console.log(selector.textContent.trim())
+      selector.classList.remove("screen-selected");
+      if (selector.textContent.trim() == currentProject.title) {
+        selector.classList.add("screen-selected");
+      }
+    });
+    
     saveList(myList);
     editProjectModal.close();
   });
