@@ -26,10 +26,9 @@ const activeTasks = document.getElementById("active-tasks");
 const editProjectBtn = document.getElementById("edit-project-btn");
 const editProjectModal = document.getElementById("edit-project-modal");
 const cancelEditProjectBtn = document.getElementById("cancel-edit-project");
-const deleteProjectBtn = document.getElementById("delete-project-btn")
+const deleteProjectBtn = document.getElementById("delete-project-btn");
 const deleteProjectModal = document.getElementById("delete-project-modal");
-const cancelDeleteProjectBtn = document.getElementById("cancel-delete-project")
-
+const cancelDeleteProjectBtn = document.getElementById("cancel-delete-project");
 
 const loadUiEvents = (myList) => {
   // Open "Add Task" modal
@@ -94,7 +93,7 @@ const loadUiEvents = (myList) => {
   // Select screen
   sidebar.addEventListener("click", (e) => {
     if (!e.target.classList.contains("screen-selector")) return;
-    shadeScreenName(e.target.textContent.trim())
+    shadeScreenName(e.target.textContent.trim());
 
     // if screen ISN'T Inbox/Today/This Week, edit/delete buttons visible
     if (
@@ -126,7 +125,7 @@ const loadUiEvents = (myList) => {
 
   // Open "Delete Project" modal
   deleteProjectBtn.addEventListener("click", () => {
-    const deleteProjectSpan = document.getElementById("delete-project-name")
+    const deleteProjectSpan = document.getElementById("delete-project-name");
     deleteProjectSpan.textContent = myList.screen;
     myList.openProject = myList.screen;
     deleteProjectModal.showModal();
@@ -201,6 +200,11 @@ function renderProjects(list) {
   });
 
   const selectElement = document.getElementById("taskProject");
+  selectElement.innerHTML = "";
+  const defaultOption = document.createElement("option");
+  defaultOption.value = "";
+  defaultOption.text = "N/A (Inbox)";
+  selectElement.add(defaultOption);
   list.projects.forEach((project) => {
     const newOption = document.createElement("option");
     newOption.value = project.title;
@@ -234,5 +238,5 @@ export {
   renderTasks,
   renderProjects,
   shadeScreenName,
-  changeScreen
+  changeScreen,
 };

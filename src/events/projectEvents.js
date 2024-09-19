@@ -49,11 +49,27 @@ const loadProjectEvents = (myList) => {
   // Delete Project
   deleteProjectModal.addEventListener("submit", (e) => {
     e.preventDefault();
+    const deleteProjectTasksCheckbox = document.getElementById(
+      "delete-project-tasks"
+    );
 
     console.log(`Deleting Project: ${myList.openProject}`);
     myList.projects = myList.projects.filter(
       (project) => project.title !== myList.openProject
     );
+
+    // If box checked, delete all applicable tasks
+    // If box unchecked, change applicable tasks to "Inbox"
+    if (deleteProjectTasksCheckbox.checked) {
+      myList.tasks = myList.tasks.filter(
+        (task) => task.project !== myList.openProject
+      );
+    } else {
+      myList.tasks.forEach((task) => {
+        console.log(task);
+        if (task.project == myList.openProject) task.project = "";
+      });
+    }
 
     myList.openProject = null;
     myList.updateScreen("Inbox");
@@ -62,6 +78,7 @@ const loadProjectEvents = (myList) => {
     renderProjects(myList);
     saveList(myList);
     deleteProjectModal.close();
+    deleteProjectTasksCheckbox.checked = true;
   });
 };
 
