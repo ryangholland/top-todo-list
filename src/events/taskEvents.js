@@ -13,7 +13,7 @@ const loadTaskEvents = (myList) => {
   activeTasks.addEventListener("click", (e) => {
     if (!e.target.classList.contains("toggle-btn")) return;
     const selectedTask = myList.getTaskById(e.target.dataset.id);
-    selectedTask.toggleCompleted();
+    myList.completeTask(selectedTask)
     renderTasks(myList);
     saveList(myList);
   });

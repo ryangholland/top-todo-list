@@ -35,4 +35,8 @@ export default class List {
   deleteTask(taskId) {
     this.tasks = this.tasks.filter((task) => task.id !== taskId);
   }
+
+  completeTask(task) {
+    task.completed = !task.completed;
+  }
 }

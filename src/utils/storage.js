@@ -10,7 +10,7 @@ function loadList() {
     const newList = new List();
     newList.tasks = loadedList.tasks;
     newList.projects = loadedList.projects;
-    newList.screen = loadedList.screen;
+    newList.screen = "Inbox";
     return newList;
   } else {
     return null;
