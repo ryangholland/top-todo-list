@@ -122,6 +122,7 @@ export default class TaskDisplay {
         const descriptionImg = document.createElement("img");
         descriptionImg.classList.add("noteImg");
         descriptionImg.src = note;
+        descriptionImg.dataset.id = this.task.id;
         bottomRow.append(descriptionImg);
       }
 

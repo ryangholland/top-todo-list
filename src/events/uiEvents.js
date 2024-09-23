@@ -29,6 +29,8 @@ const cancelEditProjectBtn = document.getElementById("cancel-edit-project");
 const deleteProjectBtn = document.getElementById("delete-project-btn");
 const deleteProjectModal = document.getElementById("delete-project-modal");
 const cancelDeleteProjectBtn = document.getElementById("cancel-delete-project");
+const notesModal = document.getElementById("notes-modal");
+const cancelNotesBtn = document.getElementById("cancel-notes");
 
 const loadUiEvents = (myList) => {
   // Open "Add Task" modal
@@ -135,6 +137,29 @@ const loadUiEvents = (myList) => {
   cancelDeleteProjectBtn.addEventListener("click", (e) => {
     e.preventDefault();
     deleteProjectModal.close();
+  });
+
+  // Open Notes modal
+  activeTasks.addEventListener("click", (e) => {
+    if (!e.target.classList.contains("noteImg")) return;
+
+    myList.openTask = myList.getTaskById(e.target.dataset.id);
+
+    console.log(myList.openTask)
+
+    const notesTitle = document.getElementById("notes-title");
+    const notesInput = document.getElementById("notes")
+
+    notesTitle.textContent = myList.openTask.title;
+    notesInput.value = myList.openTask.description;
+
+    notesModal.showModal();
+  });
+
+  // Cancel Notes modal
+  cancelNotesBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    notesModal.close();
   });
 };
 
