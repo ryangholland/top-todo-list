@@ -97,6 +97,28 @@
       </form>
     </dialog>
 
+    <dialog id="notes-modal" open>
+      <h3>Notes for <span id="notes-title">Project</span>:</h3>
+      <hr />
+      <form id="edit-project-form" class="flow">
+        <div class="form-group flow-sm">
+          <textarea
+            id="notes"
+            name="notes"
+            rows="5"
+            cols="30"
+            maxlength="500"
+          ></textarea>
+        </div>
+        <div class="form-btns">
+          <button type="submit" class="submit-btn" id="submit-edit-project">
+            Update
+          </button>
+          <button class="cancel-btn" id="cancel-edit-project">Cancel</button>
+        </div>
+      </form>
+    </dialog>
+
     <div class="body-grid">
       <header>
         <img id="logoImg" alt="Todo List Logo" />
