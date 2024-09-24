@@ -1,12 +1,14 @@
 import Task from "../models/Task";
 import { renderTasks } from "./uiEvents";
-import { closeAddTaskForm, closeQuickAddTask } from "./uiEvents";
+import { closeAddTaskForm, closeQuickAddTask, clo } from "./uiEvents";
 import { saveList } from "../utils/storage";
 
 const activeTasks = document.getElementById("active-tasks");
 const addTaskModal = document.getElementById("add-task-modal");
 const quickAddTaskInput = document.getElementById("quick-add-task-input");
 const quickAddTaskForm = document.getElementById("quick-add-task-form");
+const notesModal = document.getElementById("notes-modal");
+const notesInput = document.getElementById("notes")
 
 const loadTaskEvents = (myList) => {
   // Toggle tasks complete
@@ -82,6 +84,18 @@ const loadTaskEvents = (myList) => {
 
     closeQuickAddTask();
   });
+
+  // Edit notes
+  notesModal.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    myList.openTask.description = notesInput.value;
+    myList.openTask = null;
+
+    renderTasks(myList);
+    notesModal.close();
+    saveList(myList);
+  })
 };
 
 export default loadTaskEvents;
